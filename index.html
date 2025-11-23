@@ -4,53 +4,109 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rapport Technique</title>
+
 <style>
-body { font-family: Arial; padding: 20px; background:#f8f8f8; }
-.container { background:white; padding:20px; border-radius:10px; max-width:600px; margin:auto; }
-h1 { text-align:center; }
-button { padding: 10px 15px; margin: 5px 0; width:100%; }
-textarea { width:100%; height:150px; margin-top:15px; }
+body {
+    font-family: Arial, sans-serif;
+    background: #f2f2f2;
+    padding: 25px;
+}
+
+.container {
+    max-width: 750px;
+    margin: auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-weight: bold;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.btn {
+    width: 100%;
+    padding: 14px;
+    margin: 6px 0;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background: #ff7900;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    background: #e86d00;
+}
+
+textarea {
+    width: 100%;
+    height: 180px;
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 15px;
+}
+
+.copy {
+    background: #007bff;
+    margin-top: 10px;
+}
+.copy:hover {
+    background: #006ade;
+}
 </style>
 </head>
 <body>
 
 <div class="container">
+
 <h1>Rapport Technique</h1>
 
-<h3>Options</h3>
+<div class="section-title">Sélectionne les actions effectuées :</div>
 
-<button onclick="add('* Nouvelle NIU > Signaux conformes, nouvelle NIU installée + Livebox.')">
-Nouvelle NIU
-</button>
+<button class="btn" onclick="add('* Nouvelle NIU > Signaux conformes, nouvelle NIU installée avec Livebox.')">Nouvelle NIU</button>
 
-<button onclick="add('* Ancienne NIU > Signaux conformes, Livebox installée sur NIU existante.')">
-Ancienne NIU
-</button>
+<button class="btn" onclick="add('* Ancienne NIU > Signaux conformes, Livebox installée sur NIU existante.')">Ancienne NIU</button>
 
-<button onclick="add('* TV Box > Installation d’une TV Box Orange effectuée.')">
-TV Box
-</button>
+<button class="btn" onclick="add('* TV Box > Installation d’une TV Box Orange effectuée.')">TV Box</button>
 
-<button onclick="add('* TV Box + Câblage interne > TV box installée + coax interne ajouté.')">
-TV Box + Intern Drop
-</button>
+<button class="btn" onclick="add('* TV Box + Câblage interne > TV Box installée + coax interne posé entre NIU et TV.')">TV Box + Intern Drop</button>
 
-<button onclick="add('* Fix Phone > Téléphone Fix installé.')">
-Fix Phone
-</button>
+<button class="btn" onclick="add('* Fix Phone > Téléphone Fix installé et testé avec succès.')">Fix Phone</button>
 
-<button onclick="add('* Mesh WiFi 6 > Booster WiFi 6 installé.')">
-Mesh 6
-</button>
+<button class="btn" onclick="add('* Mesh WiFi 6 > Booster Mesh WiFi 6 installé et synchronisé.')">Mesh 6</button>
 
-<textarea id="result"></textarea>
+<button class="btn" onclick="add('* Dropcable instal > Nieuwe dropcable werd geinstalleerd.')">Dropcable instal</button>
+
+<textarea id="result" placeholder="Le rapport se génère ici automatiquement..."></textarea>
+
+<button class="btn copy" onclick="copyText()">📋 Copier le rapport</button>
+
+</div>
 
 <script>
-function add(text){
-    document.getElementById("result").value += text + "\\n";
+function add(text) {
+    document.getElementById("result").value += text + "\n";
+}
+
+function copyText() {
+    const area = document.getElementById("result");
+    area.select();
+    area.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(area.value);
 }
 </script>
 
-</div>
 </body>
 </html>
