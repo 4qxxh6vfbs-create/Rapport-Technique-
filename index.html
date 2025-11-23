@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rapport Technique</title>
+<style>
+body { font-family: Arial; padding: 20px; background:#f8f8f8; }
+.container { background:white; padding:20px; border-radius:10px; max-width:600px; margin:auto; }
+h1 { text-align:center; }
+button { padding: 10px 15px; margin: 5px 0; width:100%; }
+textarea { width:100%; height:150px; margin-top:15px; }
+</style>
+</head>
+<body>
+
+<div class="container">
+<h1>Rapport Technique</h1>
+
+<h3>Options</h3>
+
+<button onclick="add('* Nouvelle NIU > Signaux conformes, nouvelle NIU installée + Livebox.')">
+Nouvelle NIU
+</button>
+
+<button onclick="add('* Ancienne NIU > Signaux conformes, Livebox installée sur NIU existante.')">
+Ancienne NIU
+</button>
+
+<button onclick="add('* TV Box > Installation d’une TV Box Orange effectuée.')">
+TV Box
+</button>
+
+<button onclick="add('* TV Box + Câblage interne > TV box installée + coax interne ajouté.')">
+TV Box + Intern Drop
+</button>
+
+<button onclick="add('* Fix Phone > Téléphone Fix installé.')">
+Fix Phone
+</button>
+
+<button onclick="add('* Mesh WiFi 6 > Booster WiFi 6 installé.')">
+Mesh 6
+</button>
+
+<textarea id="result"></textarea>
+
+<script>
+function add(text){
+    document.getElementById("result").value += text + "\\n";
+}
+</script>
+
+</div>
+</body>
+</html>
